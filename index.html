@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🇬🇧 English Academy</div>
+
+    <nav>
+        <a href="#home">Bosh sahifa</a>
+        <a href="#vocabulary">Vocabulary</a>
+        <a href="#test">Test</a>
+        <a href="#pricing">Tariflar</a>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+    <div class="hero-text">
+        <span class="badge">PREMIUM ENGLISH PLATFORM</span>
+
+        <h1>Ingliz tilini professional darajada o‘rganing.</h1>
+
+        <p>
+            Vocabulary, testlar va kundalik mashqlar orqali
+            ingliz tilingizni bosqichma-bosqich rivojlantiring.
+        </p>
+
+        <a href="#pricing" class="main-btn">Boshlash</a>
+    </div>
+
+    <div class="hero-card">
+        <div class="circle">85%</div>
+        <h3>Learning Progress</h3>
+        <p>Bugungi rivojlanishingiz</p>
+    </div>
+</section>
+
+
+<section class="stats">
+    <div>
+        <strong>1000+</strong>
+        <span>Vocabulary</span>
+    </div>
+
+    <div>
+        <strong>500+</strong>
+        <span>Test</span>
+    </div>
+
+    <div>
+        <strong>B1–B2</strong>
+        <span>Darajalar</span>
+    </div>
+</section>
+
+
+<section id="vocabulary" class="section">
+    <div class="section-title">
+        <span>VOCABULARY</span>
+        <h2>Inglizcha so‘zlarni o‘rganing</h2>
+        <p>Kerakli so‘zni tezda qidiring.</p>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchWord"
+            placeholder="So‘z qidiring..."
+            oninput="searchWords()"
+        >
+    </div>
+
+    <div id="wordList" class="word-grid"></div>
+
+    <button class="load-btn" onclick="loadMoreWords()">
+        Ko‘proq ko‘rsatish
+    </button>
+</section>
+
+
+<section id="test" class="section test-section">
+
+    <div class="section-title">
+        <span>ENGLISH TEST</span>
+        <h2>Bilimingizni sinang</h2>
+        <p>Darajangizni test orqali tekshiring.</p>
+    </div>
+
+    <div class="test-card" id="testArea">
+
+        <div class="test-top">
+            <span id="questionNumber">Savol 1 / 30</span>
+            <span id="testScore">0 ball</span>
+        </div>
+
+        <div class="progress-bg">
+            <div id="testProgress"></div>
+        </div>
+
+        <h3 id="question">Test yuklanmoqda...</h3>
+
+        <div id="options"></div>
+
+        <div id="feedback"></div>
+
+        <button id="nextBtn" onclick="nextQuestion()" class="main-btn next-btn">
+            Keyingi savol
+        </button>
+
+    </div>
+
+
+    <div id="result" class="result-card">
+
+        <div class="result-icon">🏆</div>
+
+        <h2>Test tugadi!</h2>
+
+        <p id="scoreText"></p>
+
+        <button onclick="restartTest()" class="main-btn">
+            Qayta boshlash
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="dashboard" class="section dashboard-section">
+
+    <div class="dashboard-card">
+
+        <div>
+            <span>Joriy tarif</span>
+            <h2 id="currentPlan">Free</h2>
+        </div>
+
+        <div>
+            <span>Oxirgi natija</span>
+            <h2 id="dashboardScore">0%</h2>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="pricing" class="section pricing-section">
+
+    <div class="section-title">
+        <span>PRICING</span>
+        <h2>O‘zingizga mos tarifni tanlang</h2>
+        <p>Istalgan vaqtda tarifni o‘zgartirish mumkin.</p>
+    </div>
+
+
+    <div class="pricing-grid">
+
+        <div class="price-card">
+
+            <span class="plan-name">FREE</span>
+
+            <h2>FREE</h2>
+
+            <ul>
+                <li>✓ 100 Vocabulary</li>
+                <li>✓ 50 Test</li>
+                <li>✓ Basic lessons</li>
+                <li>✓ Dashboard</li>
+            </ul>
+
+            <button onclick="selectPlan('Free')">
+                Free tanlash
+            </button>
+
+        </div>
+
+
+        <div class="price-card popular">
+
+            <div class="popular-label">ENG MASHHUR</div>
+
+            <span class="plan-name">PREMIUM</span>
+
+            <h2>Premium</h2>
+
+            <ul>
+                <li>✓ 500 Vocabulary</li>
+                <li>✓ 200 Test</li>
+                <li>✓ B1–B2 lessons</li>
+                <li>✓ Full Dashboard</li>
+            </ul>
+
+            <button onclick="startPayment('Premium')">
+                Premium olish
+            </button>
+
+        </div>
+
+
+        <div class="price-card pro">
+
+            <span class="plan-name">PRO</span>
+
+            <h2>Pro</h2>
+
+            <ul>
+                <li>✓ 1000 Vocabulary</li>
+                <li>✓ 500 Test</li>
+                <li>✓ All lessons</li>
+                <li>✓ Advanced learning</li>
+            </ul>
+
+            <button onclick="startPayment('Pro')">
+                Pro olish
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    <h3>🇬🇧 English Academy</h3>
+    <p>Ingliz tilini oson va zamonaviy usulda o‘rganing.</p>
+    <small>© 2026 English Academy</small>
+</footer>
+
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+<section id="grammar">
+
+    <h2>English Grammar</h2>
+
+    <div class="grammar-box">
+
+        <h3>Present Simple</h3>
+        <p>Doimiy ishlar uchun ishlatiladi.</p>
+        <p><b>Example:</b> I go to school every day.</p>
+
+    </div>
+
+    <div class="grammar-box">
+
+        <h3>Past Simple</h3>
+        <p>O‘tmishda bo‘lgan ishlar uchun ishlatiladi.</p>
+        <p><b>Example:</b> I watched TV yesterday.</p>
+
+    </div>
+
+    <div class="grammar-box">
+
+        <h3>Future Simple</h3>
+        <p>Kelajakdagi ishlar uchun ishlatiladi.</p>
+        <p><b>Example:</b> I will go tomorrow.</p>
+
+    </div>
+
+</section>
+</body>
+</html>
